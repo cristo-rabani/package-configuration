@@ -1,0 +1,26 @@
+{
+  "name": "package-configuration",
+  "version": "1.0.0",
+  "description": "get package configuration",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "ncc build src/index.js"
+  },
+  "author": "cristo.rabani@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "@vercel/ncc": "^0.24.1"
+  },
+  "deployment-envs": {
+    "staging": {
+      "serverUrl": "https://staging.cristo.io"
+    },
+    "production": {
+      "serverUrl": "https://production.cristo.io"
+    }
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.6"
+  }
+}
