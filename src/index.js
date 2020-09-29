@@ -9,8 +9,10 @@ async function run() {
   try {
     const buffer = await readFileAsync('package.json');
     const json = JSON.parse(buffer.toString());
-    console.log('json', json);
+    console.log('json', json, keyName, target);
+    console.log('keys', keyName, target);
     const targetConf = json[keyName][target];
+    console.log('Configuration', targetConf);
     if (!targetConf) {
       core.setFailed('configuration not found :-(');
       return;
