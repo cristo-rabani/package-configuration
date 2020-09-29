@@ -1,6 +1,6 @@
-import core from '@actions/core';
-import fs from 'fs';
-import util from 'util';
+const core = require('@actions/core');
+const fs = require('fs');
+const util = require('util');
 const readFileAsync = util.promisify(fs.readFile);
 
 async function run() {
