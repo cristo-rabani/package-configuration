@@ -2,8 +2,11 @@ name: 'package-configuration'
 description: 'Reads key-value config from package.json under specific key name'
 author: 'cristo.rabani'
 inputs:
-  keyName:
+  mainKey:
     description: 'key name in package.json that is storing package.json'
+  keyName:
+      description: 'key name in package.json that is storing package.json'
+      required: true
 runs:
   using: 'node12'
   main: 'dist/index.js'
