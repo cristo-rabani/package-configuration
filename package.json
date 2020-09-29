@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "ncc build src/index.js"
+    "prepare": "ncc build src/index.js -o dist --source-map"
   },
   "author": "cristo.rabani@gmail.com",
   "license": "MIT",
