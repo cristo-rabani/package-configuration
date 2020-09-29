@@ -21,6 +21,7 @@
     }
   },
   "dependencies": {
-    "@actions/core": "^1.2.6"
+    "@actions/core": "^1.2.6",
+    "lodash.get": "^4.4.2"
   }
 }
