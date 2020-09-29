@@ -1,11 +1,11 @@
 require('./sourcemap-register.js');module.exports =
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ 241:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
+"use strict";
 
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
@@ -91,6 +91,7 @@ function escapeProperty(s) {
 /***/ 186:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
+"use strict";
 
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -335,6 +336,7 @@ exports.getState = getState;
 /***/ 717:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
+"use strict";
 
 // For internal use, subject to change.
 var __importStar = (this && this.__importStar) || function (mod) {
@@ -370,6 +372,7 @@ exports.issueCommand = issueCommand;
 /***/ 278:
 /***/ ((__unused_webpack_module, exports) => {
 
+"use strict";
 
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -393,34 +396,27 @@ exports.toCommandValue = toCommandValue;
 /***/ }),
 
 /***/ 351:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(186);
-/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_actions_core__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(747);
-/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(fs__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(669);
-/* harmony import */ var util__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(util__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-const readFileAsync = util__WEBPACK_IMPORTED_MODULE_2___default().promisify((fs__WEBPACK_IMPORTED_MODULE_1___default().readFile));
+const core = __webpack_require__(186);
+const fs = __webpack_require__(747);
+const util = __webpack_require__(669);
+const readFileAsync = util.promisify(fs.readFile);
 
 async function run() {
-  const target = _actions_core__WEBPACK_IMPORTED_MODULE_0___default().getInput('github.event.inputs.target');
-  const keyName = _actions_core__WEBPACK_IMPORTED_MODULE_0___default().getInput('keyName');
+  const target = core.getInput('github.event.inputs.target');
+  const keyName = core.getInput('keyName');
   try {
     const buffer = await readFileAsync('package.json');
     const json = JSON.parse(buffer.toString());
     const targetConf = json[keyName][target];
     if (!targetConf || typeof targetConf !== 'object') {
-      _actions_core__WEBPACK_IMPORTED_MODULE_0___default().setFailed('configuration not found :-(');
+      core.setFailed('configuration not found :-(');
       return;
     }
-    Object.keys(targetConf).forEach((key) => _actions_core__WEBPACK_IMPORTED_MODULE_0___default().setOutput(key, targetConf[key]));
+    Object.keys(targetConf).forEach((key) => core.setOutput(key, targetConf[key]));
   } catch (error) {
-    _actions_core__WEBPACK_IMPORTED_MODULE_0___default().setFailed(error.message);
+    core.setFailed(error.message);
   }
 }
 
@@ -432,6 +428,7 @@ run();
 /***/ 747:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("fs");
 
 /***/ }),
@@ -439,6 +436,7 @@ module.exports = require("fs");
 /***/ 87:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("os");
 
 /***/ }),
@@ -446,6 +444,7 @@ module.exports = require("os");
 /***/ 622:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("path");
 
 /***/ }),
@@ -453,6 +452,7 @@ module.exports = require("path");
 /***/ 669:
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("util");
 
 /***/ })
@@ -489,46 +489,6 @@ module.exports = require("util");
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => module['default'] :
-/******/ 				() => module;
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop)
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/compat */
 /******/ 	
 /******/ 	__webpack_require__.ab = __dirname + "/";/************************************************************************/
